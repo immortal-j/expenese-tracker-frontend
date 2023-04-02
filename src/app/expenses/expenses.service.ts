@@ -27,7 +27,7 @@ export class ExpenseService implements OnInit {
         next: (data: any) => {
           this.expenses = data.map(
             (item: any) =>
-              new Expense(item.amount, item.title, item.description)
+              new Expense(item.amount, item.title, item.description,item.date)
           );
           console.log("HELLO!!!");
           return this.expenses.slice();

@@ -34,7 +34,7 @@ export class ProfileComponent implements OnInit {
           this.endPointsService.getUserData(<string>this.userData.email).subscribe({
             next:(data)=>{
               console.log(data);
-              this.storeService.setUser(new User({_id:null,name:data.name,email:data.email,budget:data.budget,totalspent:null}));
+              this.storeService.setUser(new User({_id:null,name:data.name,email:data.email,budget:data.budget,totalspent:null,date:null}));
               this.router.navigate(['/expenses']);
             },
             error:(err)=>{

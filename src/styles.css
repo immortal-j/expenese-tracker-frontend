@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+html{
+    height:100%;
+}
+body{
+    height: 100%;
+    width:100%;
+    background-image: url("https://freevector-images.s3.amazonaws.com/uploads/vector/preview/40529/White_Background_generated.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}

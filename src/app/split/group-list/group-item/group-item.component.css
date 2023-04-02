@@ -1,0 +1,9 @@
+h1{
+    font-weight: 600;
+}
+.btn-dark:hover h2{
+    color:white;
+}
+.active h2{
+    color:white;
+}

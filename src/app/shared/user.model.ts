@@ -4,12 +4,14 @@ export class User {
   public email: string | number | null;
   public budget: string | number | null;
   public totalspent: string | number | null;
+  public date: string | null;
   constructor(data: {
     _id: string | number | null;
     name: string | number | null;
     email: string | number | null;
     budget: string | number | null;
     totalspent: string | number | null;
+    date:string | null;
   }) {
     this.id = data._id;
     this.name = data.name;
