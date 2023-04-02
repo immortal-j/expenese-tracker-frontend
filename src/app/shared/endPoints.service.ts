@@ -115,4 +115,11 @@ export class EndPointsService {
       groupid: groupid,
     });
   }
+  splitExpense(email:string,groupid:string,index:number): Observable<any> {
+     return this.http.post<any>(this.url + '/expenses/splitexpense', {
+       email: email,
+       groupid: groupid,
+       index:index
+     });
+  }
 }

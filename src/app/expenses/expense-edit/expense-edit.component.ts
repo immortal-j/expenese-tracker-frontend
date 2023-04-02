@@ -43,7 +43,8 @@ export class ExpenseEditComponent implements OnInit {
       new Expense(
         this.editExpenseForm.value.amount,
         this.editExpenseForm.value.title,
-        this.editExpenseForm.value.description
+        this.editExpenseForm.value.description,
+        null
       ),this.index
     ).subscribe({
       next:(data)=>{
@@ -53,7 +54,7 @@ export class ExpenseEditComponent implements OnInit {
            next: (data) => {
              this.expenses = data.map(
                (item: any) =>
-                 new Expense(item.amount, item.title, item.description)
+                 new Expense(item.amount, item.title, item.description,null)
              );
              this.storeService.setExpenses(this.expenses);
              this.endPointsService

@@ -1,10 +1,35 @@
- <div class="card">
-      <div class="card-body ">
-        <h1 class="card-title">{{selectedExpense.amount}}</h1>
-        <h3 class="card-title">{{selectedExpense.title}}</h3>
-        <h5 class="card-text">{{selectedExpense.description}}</h5>
-        <a  class="btn btn-danger card-btn" routerLink="edit" style="float:right" (click)="onDelete()">Delete</a>
-        <a  class="btn btn-dark card-btn" routerLink="edit" style="float:right">Edit</a>
-        <a  class="btn btn-dark card-btn" style="float:right">Split in Group</a>
+<div class="card">
+  <div class="card-body">
+    <h1 class="card-title text-danger display-4">{{ selectedExpense.amount }}</h1>
+    <h3 class="card-title">{{ selectedExpense.title }}</h3>
+    <h5 class="card-text">{{ selectedExpense.description }}</h5>
+    <a
+      class="btn btn-danger card-btn"
+      routerLink="edit"
+      style="float: right"
+      (click)="onDelete()"
+      >Delete</a
+    >
+    <a class="btn btn-dark card-btn" routerLink="edit" style="float: right"
+      >Edit</a
+    >
+    <div class="dropdown">
+      <button
+        class="btn btn-dark dropdown-toggle card-btn"
+        style="float: right;"
+        type="button"
+        data-toggle="dropdown"
+        aria-expanded="false"
+      >
+        Dropdown
+      </button>
+      <div class="dropdown-menu">
+        <div *ngFor="let group of groups; let i=index">
+          <button class="dropdown-item" type="button" (click)="splitExpense(i)">{{group.name}}</button>
+        </div>
+        
       </div>
     </div>
+   
+  </div>
+</div>

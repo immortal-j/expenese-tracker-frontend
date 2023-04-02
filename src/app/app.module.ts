@@ -24,12 +24,13 @@ import {HttpClientModule} from '@angular/common/http';
 import { EndPointsService } from './shared/endPoints.service';
 import { StoreService } from './shared/store.service';
 import { SplitExpenseComponent } from './split/split-expense/split-expense.component';
+import { AuthGuard } from './shared/auth-guard.service';
 
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, ExpensesComponent, ExpensesListComponent, ExpenseDetailsComponent, ProfileComponent, LoginComponent, ExpenseEditComponent, ExpensesItemComponent, ExpenseSummaryComponent, ExpenseNewComponent, SplitComponent, GroupListComponent, GroupDetailComponent, GroupItemComponent, SplitExpenseComponent],
   imports: [BrowserModule, ReactiveFormsModule,AppRoutingModule,HttpClientModule],
-  providers: [LoginService,EndPointsService,StoreService],
+  providers: [LoginService,EndPointsService,StoreService,AuthGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

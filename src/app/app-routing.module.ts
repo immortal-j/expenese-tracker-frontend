@@ -7,25 +7,33 @@ import { ExpensesListComponent } from './expenses/expenses-list/expenses-list.co
 import { ExpensesComponent } from './expenses/expenses.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AuthGuard } from './shared/auth-guard.service';
 import { GroupDetailComponent } from './split/group-detail/group-detail.component';
 import { SplitExpenseComponent } from './split/split-expense/split-expense.component';
 import { SplitComponent } from './split/split.component';
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  {
+    path: '',
+    redirectTo: '/expenses',
+    pathMatch: 'full',
+  },
   {
     path: 'profile',
+    canActivate: [AuthGuard],
     component: ProfileComponent,
   },
   {
     path: 'split',
+    canActivate: [AuthGuard],
     component: SplitComponent,
     children: [
-      {path: ':id/new',component:SplitExpenseComponent},
-      {path: ':id',component:GroupDetailComponent}
-    ]
+      { path: ':id/new', component: SplitExpenseComponent },
+      { path: ':id', component: GroupDetailComponent },
+    ],
   },
   {
     path: 'expenses',
+    canActivate: [AuthGuard],
     component: ExpensesComponent,
     children: [
       { path: 'new', component: ExpenseNewComponent },
@@ -34,9 +42,9 @@ const appRoutes: Routes = [
     ],
   },
   {
-    path:'login',
+    path: 'login',
     component: LoginComponent,
-  }
+  },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(appRoutes)],

@@ -1,8 +1,16 @@
 
 
- <a [routerLink]="[expensenumber]" routerLinkActive="active" style="cursor:pointer" class="list-group-item list-group-item-action rounded btn-dark">
-    <h1>{{expenseitem.amount}}</h1>
-    <div class="d-flex w-100 justify-content-between">
-      <h4 class="mb-1">{{expenseitem.title}}</h4>
+ <a [routerLink]="[expensenumber]" routerLinkActive="active" style="cursor:pointer;min-width:100%;text-decoration: none;" class="card text-dark btn-dark p-3">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+          <h2 class="mb-1" style="font-weight: 600;">{{expenseitem.title}}</h2>
+          <p style="font-weight:600;color:grey">{{expenseitem.date}}<p>
+      </div>
+      <div style="text-align:end" class="col-md-6 text-danger mt-3">
+         <h1> {{expenseitem.amount}}</h1>
+      </div>
     </div>
-  </a>
+  </div> 
+</a>
+  

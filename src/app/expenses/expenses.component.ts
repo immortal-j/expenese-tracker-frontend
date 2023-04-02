@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { EndPointsService } from '../shared/endPoints.service';
+import { StoreService } from '../shared/store.service';
+import { User } from '../shared/user.model';
+import { Group } from '../split/group.model';
 import { ExpenseService } from './expenses.service';
 
 @Component({
@@ -11,9 +15,12 @@ import { ExpenseService } from './expenses.service';
 export class ExpensesComponent implements OnInit {
   showSummary: boolean = false;
   url: string;
+  user:User;
+  groups:Group[];
   lastpartUrl: any;
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  constructor(private storeService:StoreService,private endPointsService:EndPointsService,private router: Router, private route: ActivatedRoute) {}
   ngOnInit(): void {
+    this.user = this.storeService.getUser();
     this.url = this.router.url;
     this.lastpartUrl = this.url.split('/');
     this.lastpartUrl = this.lastpartUrl[this.lastpartUrl.length - 2];
@@ -35,5 +42,21 @@ export class ExpensesComponent implements OnInit {
         this.showSummary = false;
       }
     });
-  }
+    this.endPointsService.getGroups(<string>this.user.email).subscribe({
+          next: (data)=>{
+            console.log(data);
+          this.groups = data.map(
+            (group: any) =>
+              new Group(
+                group._id,
+                group.name,
+                group.members,
+                group.transactions
+              )
+          );
+          this.storeService.setGroups(this.groups);
+          },
+          error: (err) => {console.log(err);}
+        })
+      }
 }

@@ -4,3 +4,6 @@
 .card-body{
     font-weight: 600;
 }
+.card{
+    min-height:250px;
+}

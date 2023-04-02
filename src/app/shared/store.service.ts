@@ -8,10 +8,19 @@ export class StoreService{
     @Output() totalspentchanged = new EventEmitter<number>();
     @Output() groupsChanged = new EventEmitter<Group[]>();
     @Output() userChanged = new EventEmitter<User>();
+    @Output() loggedinChanged = new EventEmitter<boolean>();
     user:User;
+    loggedin:boolean = false;
     expenses:Expense[];
     groups:Group[];
     totalspent:number;
+    setLoggedin(status:boolean):void{
+        this.loggedin = status;
+        this.loggedinChanged.emit(this.loggedin);
+    }
+    getLoggedin():boolean{
+        return this.loggedin;
+    }
     setTotalSpent(amount:number){
         this.totalspent = amount;
         console.log(this.totalspent);
@@ -29,7 +38,6 @@ export class StoreService{
         return this.expenses[index];
     }
     setUser(user:User){
-        console.log(user);
         this.user = user;
         this.userChanged.emit(this.user);
     }
@@ -39,6 +47,10 @@ export class StoreService{
     setGroups(groups:Group[]){
         this.groups = groups;
         this.groupsChanged.emit(this.groups);
+    }
+    getGroups(){
+        console.log(this.groups);
+        return this.groups.slice();
     }
     getGroup(index:number){
         return this.groups[index];

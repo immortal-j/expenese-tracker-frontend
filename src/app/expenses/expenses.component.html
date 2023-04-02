@@ -1,12 +1,13 @@
-<div class="container mt-5">
-  <div class="row justify-content-around">
+<div class="container-fluid mt-5 " style="height:500px">
+  <div class="row justify-content-around h-100" >
+    <div class="col-md-4 my-auto ">
+      <router-outlet></router-outlet>
+      <app-expense-summary class=" mt-5"  *ngIf="!showSummary"></app-expense-summary>
+      
+    </div>
     <div class="col-md-4">
       <app-expenses-list></app-expenses-list>
     </div>
-    <div class="col-md-6">
-      <router-outlet></router-outlet>
-      <app-expense-summary class="m-3" *ngIf="!showSummary"></app-expense-summary>
-      
-    </div>
+    
   </div>
 </div>

@@ -28,7 +28,7 @@ export class ExpensesListComponent implements OnInit {
         next: (data) => {
           this.expenses = data.map(
             (item: any) =>
-              new Expense(item.amount, item.title, item.description)
+              new Expense(item.amount, item.title, item.description,item.date)
           );
           this.storeService.setExpenses(this.expenses);
         },
