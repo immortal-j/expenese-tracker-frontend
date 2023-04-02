@@ -3,8 +3,8 @@
     <h1 class="card-title">{{ group.name }}</h1>
    <p *ngFor="let transaction of userTransactions;"> <span class="f-30" >{{transaction.email}}</span><span class="f-20 mt-2" [ngClass]="transaction.amount>0?'green':transaction.amount<0?'red':''" style="float:right">{{transaction.amount}}</span></p>
    
-    <a class="btn btn-primary mx-3 card-btn" routerLink="edit" style="float: right" routerLink="new"
-      >Add Expense</a
+    <button class="btn btn-primary mx-3 card-btn" routerLink="edit" style="float: right" routerLink="new" [disabled]="group.members.length>1?false:true"
+      >Add Expense</button
     >
     <a
       class="btn btn-dark card-btn"

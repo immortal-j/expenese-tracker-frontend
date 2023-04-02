@@ -44,9 +44,13 @@ export class LoginComponent implements OnInit {
   onsignin() {
     this.endPointService.onsignin(this.signinForm.value).subscribe({
       next: (data) => {
+        console.log(data);
         this.storeService.setUser(new User({_id: data["_id"],name:data["name"], email: data["email"], budget: data["budget"],totalspent: data["totalspent"]}))
         this.router.navigate(['/expenses']);
       },
+      error:(err)=>{
+        console.log(err);
+      }
     });
   }
   onsignup() {

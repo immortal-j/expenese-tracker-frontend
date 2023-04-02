@@ -40,6 +40,10 @@ export class StoreService{
         this.groups = groups;
         this.groupsChanged.emit(this.groups);
     }
+    getGroups(){
+        console.log(this.groups);
+        return this.groups.slice();
+    }
     getGroup(index:number){
         return this.groups[index];
     }
