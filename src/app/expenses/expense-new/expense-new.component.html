@@ -1,0 +1,21 @@
+<div class="container mt-5">
+    <h1> Add New Expense</h1>
+<form [formGroup]="newExpenseForm" (ngSubmit)="onAdd()">
+  <div class="form-group">
+    <label for="amount">Amount</label>
+    <input type="number" class="form-control" id="amount" formControlName="amount">
+    <small id="amounthelp" class="form-text text-muted">Add Your Expense Amount</small>
+  </div>
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input type="text" class="form-control" id="title" formControlName="title">
+     <small id="titlehelp" class="form-text text-muted">Add your Title</small>
+  </div>
+  <div class="form-group">
+    <label for="title">Description</label>
+    <textarea class="form-control" id="description" rows="3" formControlName="description"></textarea>
+     <small id="deschelp" class="form-text text-muted">Add Description</small>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>

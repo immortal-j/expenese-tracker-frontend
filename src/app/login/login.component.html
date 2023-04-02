@@ -1,0 +1,56 @@
+	<div class="section">
+		<div class="container">
+			<div class="row full-height justify-content-center">
+				<div class="col-12 text-center py-5">
+					<div class="section pb-5 pt-5 pt-sm-2 text-center">
+						<h6 class="mb-0 pb-3"><button class="btn btn-outline-dark" [ngClass]="signin?'active':''" (click)="handleclicksignin()">Log In </button>&nbsp;&nbsp;<button class="btn btn-outline-dark" [ngClass]="!signin?'active':''" (click)="handleclicksignup()">Sign Up</button></h6>
+			          	
+						<div class="card-3d-wrap mx-auto">
+							<div class="card-3d-wrapper">
+								<div class="card-front" *ngIf="signin">
+									<div class="center-wrap">
+										<div class="section text-center">
+											<h4 class="mb-4 pb-3 text-white">Log In</h4>
+                                            <form [formGroup]="signinForm" (ngSubmit)="onsignin()">
+											<div class="form-group">
+												<input type="email" name="logemail" class="form-style" placeholder="Your Email" id="logemail"  formControlName="email">
+												<i class="input-icon uil uil-at"></i>
+											</div>	
+											<div class="form-group mt-2">
+												<input type="password" name="logpass" class="form-style" placeholder="Your Password" id="logpass"  formControlName="password">
+												<i class="input-icon uil uil-lock-alt"></i>
+											</div>
+											<button type="submit" href="#" class="btn mt-4">Signin</button>
+                                            </form>
+                            				</div>
+			      					</div>
+			      				</div>
+								<div class="card-front" *ngIf="!signin">
+									<div class="center-wrap">
+										<div class="section text-center">
+											<h4 class="mb-4 pb-3 text-white">Sign Up</h4>
+                                            <form [formGroup]="signupForm" (ngSubmit)="onsignup()">
+											<div class="form-group">
+												<input type="text" name="logname" class="form-style" placeholder="Your Full Name" id="logname" formControlName="name">
+												<i class="input-icon uil uil-user"></i>
+											</div>	
+											<div class="form-group mt-2">
+												<input type="email" name="logemail" class="form-style" placeholder="Your Email" id="logemail" formControlName="email">
+												<i class="input-icon uil uil-at"></i>
+											</div>	
+											<div class="form-group mt-2">
+												<input type="password" name="logpass" class="form-style" placeholder="Your Password" id="logpass" formControlName="password">
+												<i class="input-icon uil uil-lock-alt"></i>
+											</div>
+											<button type="submit" href="#" class="btn mt-4">signup</button>
+                                            </form>
+				      					</div>
+			      					</div>
+			      				</div>
+			      			</div>
+			      		</div>
+			      	</div>
+		      	</div>
+	      	</div>
+	    </div>
+	</div>

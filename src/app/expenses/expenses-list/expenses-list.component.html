@@ -1,0 +1,15 @@
+
+<div class="row">
+    <div class="col-xs-12">
+        <button class="btn btn-dark" (click)="addNew()" >Add Expense</button>
+    </div>
+</div>
+<hr/>
+<h2>Expenses</h2>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="list-group">
+         <app-expenses-item *ngFor="let expense of expenses; let i=index" [expenseitem]="expense" [expensenumber]="i" class="mt-2"  ></app-expenses-item>
+        </div>
+    </div>
+</div>

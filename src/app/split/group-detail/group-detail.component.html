@@ -1,0 +1,65 @@
+<div class="card">
+  <div class="card-body">
+    <h1 class="card-title">{{ group.name }}</h1>
+   <p *ngFor="let transaction of userTransactions;"> <span class="f-30" >{{transaction.email}}</span><span class="f-20 mt-2" [ngClass]="transaction.amount>0?'green':transaction.amount<0?'red':''" style="float:right">{{transaction.amount}}</span></p>
+   
+    <a class="btn btn-primary mx-3 card-btn" routerLink="edit" style="float: right" routerLink="new"
+      >Add Expense</a
+    >
+    <a
+      class="btn btn-dark card-btn"
+      data-toggle="modal"
+      data-target="#Newmember"
+      style="float: right"
+      >Add Member</a
+    >
+  </div>
+</div>
+<div
+  class="modal fade"
+  id="Newmember"
+  tabindex="-1"
+  aria-labelledby="NewmemberLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="NewmemberLabel">Modal title</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form [formGroup]="newMemberForm" >
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="amount">Member mail</label>
+            <input
+              type="email"
+              class="form-control"
+              id="member"
+              formControlName="newMember"
+            />
+            <small id="amounthelp" class="form-text text-muted"
+              >Add mail of Member</small
+            >
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+          <button type="button" (click)="addMember()" class="btn btn-primary" data-dismiss="modal">Add Member</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+

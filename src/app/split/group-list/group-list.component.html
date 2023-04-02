@@ -1,0 +1,63 @@
+
+<div class="row">
+    <div class="col-xs-12">
+        <button class="btn btn-dark" data-toggle="modal"
+      data-target="#Newgroup" >Add Split Group</button>
+    </div>
+</div>
+<hr/>
+<h2>Groups</h2>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="list-group">
+         <!-- <app-expenses-item *ngFor="let expense of expenses; let i=index" [expenseitem]="expense" [expensenumber]="i" class="mt-2"  ></app-expenses-item> -->
+            <app-group-item *ngFor="let group of groups; let i=index" [group]="group" [index]="i"></app-group-item>
+        </div>
+    </div>
+</div>
+
+<div
+  class="modal fade"
+  id="Newgroup"
+  tabindex="-1"
+  aria-labelledby="NewgroupLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="NewgroupLabel">Modal title</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form [formGroup]="addGroupForm" >
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="groupname">Groupname</label>
+            <input
+              type="email"
+              class="form-control"
+              id="groupname"
+              formControlName="groupname"
+            />
+            <small id="amounthelp" class="form-text text-muted"
+              >Add Group Name</small
+            >
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+          <button type="button" (click)="addGroup()" class="btn btn-primary" data-dismiss="modal">Add Group</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

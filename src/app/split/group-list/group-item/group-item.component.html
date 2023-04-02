@@ -1,0 +1,8 @@
+
+
+ <a [routerLink]="[index]" routerLinkActive="active" style="cursor:pointer;width:300px" class="list-group-item list-group-item-action rounded btn-dark">
+    <h3>{{group.name}}</h3>
+    <div class=" w-100 justify-content-between">
+      <span *ngFor="let member of group.members" class="badge badge-pill badge-primary">{{member}}</span>
+    </div>
+  </a>
