@@ -74,7 +74,7 @@ export class ExpenseDetailsComponent implements OnInit {
       next:(data)=>{
         this.endPointsService.getGroups(<string>this.user.email).subscribe({
           next: (data)=>{
-          this.groups = data.map(
+          this.groups = data.map( 
             (group: any) =>
               new Group(
                 group._id,
